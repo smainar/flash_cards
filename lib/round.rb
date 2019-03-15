@@ -40,4 +40,8 @@ class Round
     return correct_number_of_guesses_by_category
   end
 
+  def percent_correct
+    (number_correct.to_f / @turns.length) * 100
+  end
+
 end
