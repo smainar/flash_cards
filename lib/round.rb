@@ -30,4 +30,14 @@ class Round
     return correct_number_of_guesses
   end
 
+  def number_correct_by_category(category)
+    correct_number_of_guesses_by_category = 0
+    @turns.map do |turn|
+      if turn.correct? && turn.card.category == category
+        correct_number_of_guesses_by_category += 1
+      end
+    end
+    return correct_number_of_guesses_by_category
+  end
+
 end
