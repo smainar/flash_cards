@@ -20,4 +20,14 @@ class Round
     return new_turn
   end
 
+  def number_correct
+    correct_number_of_guesses = 0
+    @turns.map do |turn|
+      if turn.correct?
+        correct_number_of_guesses += 1
+      end
+    end
+    return correct_number_of_guesses
+  end
+
 end
