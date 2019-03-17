@@ -52,4 +52,12 @@ class Round
     (number_correct_by_category(category).to_f / number_of_cards_per_category.length) * 100
   end
 
+  def start
+    p "Welcome! You're playing with #{@deck.count} cards."
+    p "We have a selection of holiday trivia questions for you. See how many you can answer correctly."
+    p "-" * 20
+    play_game
+    end_game
+  end
+
 end
