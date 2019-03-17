@@ -71,4 +71,12 @@ class Round
     end
   end
 
+  def end_game
+    p "****** Game over! ******"
+    p "You had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct.to_i}%."
+    p "Halloween - #{percent_correct_by_category(:Halloween).to_i}% correct"
+    p "Thanksgiving - #{percent_correct_by_category(:Thanksgiving).to_i}% correct"
+    p "Christmas - #{percent_correct_by_category(:Christmas).to_i}% correct"
+  end
+
 end
