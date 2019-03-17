@@ -60,4 +60,15 @@ class Round
     end_game
   end
 
+  def play_game
+    @deck.count.times do
+      p "This is card number #{@turns.length + 1} out of #{@deck.count}"
+      p "Question: #{current_card.question}"
+      p "Enter your answer:"
+      answer = gets.chomp.upcase
+      take_turn(answer)
+      p @turns.last.feedback
+    end
+  end
+
 end
