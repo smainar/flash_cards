@@ -52,4 +52,31 @@ class Round
     (number_correct_by_category(category).to_f / number_of_cards_per_category.length) * 100
   end
 
+  def start
+    p "Welcome! You're playing with #{@deck.count} cards."
+    p "We have a selection of holiday trivia questions for you. See how many you can answer correctly."
+    p "-" * 20
+    play_game
+    end_game
+  end
+
+  def play_game
+    @deck.count.times do
+      p "This is card number #{@turns.length + 1} out of #{@deck.count}"
+      p "Question: #{current_card.question}"
+      p "Enter your answer:"
+      answer = gets.chomp.upcase
+      take_turn(answer)
+      p @turns.last.feedback
+    end
+  end
+
+  def end_game
+    p "****** Game over! ******"
+    p "You had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct.to_i}%."
+    p "Halloween - #{percent_correct_by_category(:Halloween).to_i}% correct"
+    p "Thanksgiving - #{percent_correct_by_category(:Thanksgiving).to_i}% correct"
+    p "Christmas - #{percent_correct_by_category(:Christmas).to_i}% correct"
+  end
+
 end
