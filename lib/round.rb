@@ -74,10 +74,15 @@ class Round
   def end_game
     p "****** Game over! ******"
     p "You had #{number_correct} correct guesses out of #{@deck.count} for a total score of #{percent_correct.to_i}%."
-    p "Halloween - #{percent_correct_by_category(:Halloween).to_i}% correct"
-    p "Thanksgiving - #{percent_correct_by_category(:Thanksgiving).to_i}% correct"
-    p "Christmas - #{percent_correct_by_category(:Christmas).to_i}% correct"
+
+    list_of_categories = []
+    @turns.each do |turn|
+      list_of_categories << turn.card.category
+    end
+    
+    list_of_categories.uniq.each do |category|
+      p "#{category} - #{percent_correct_by_category(category).to_i}% correct"
+    end
   end
 
  end
- 
