@@ -16,7 +16,7 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     @turns << new_turn
-    @deck.cards.shift
+    @deck.cards.rotate!
     return new_turn
   end
 
@@ -79,4 +79,5 @@ class Round
     p "Christmas - #{percent_correct_by_category(:Christmas).to_i}% correct"
   end
 
-end
+ end
+ 
